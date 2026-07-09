@@ -1,23 +1,999 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+ 
+    <!-- SEO를 위한 JSON-LD (FAQPage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "인천 개인회생 전문 법무사 비용은 평균적으로 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "인천지방법원 관할 개인회생 진행 시 전문 법무사 수임료 비용은 평균적으로 100만 원에서 180만 원 선으로 책정됩니다. 채권자 수와 사건의 난이도에 따라 구체적인 금액과 견적은 차이가 날 수 있으며, 법원에 납부하는 송달료와 인지대 등 공과금은 별도로 계산됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "변호사와 법무사의 차이점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "가장 큰 차이점은 서류 작성 대행과 법정 대리 여부입니다. 법무사는 합리적인 가격으로 전문적인 서류 대행을 지원하므로 비용 측면에서 가장 저렴한곳을 찾는 분들께 추천되며, 변호사는 법정 변론 대리가 가능하나 수임 비용이 다소 높게 책정되는 편입니다. 개인회생은 대부분 서류 심사로 진행되므로 숙련된 전문 법무사를 통한 진행이 매우 실용적입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "인천지방법원의 개인회생 심사 기준은 어떤 특징이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "인천지방법원은 미추홀구, 남동구, 부평구, 서구 등 인천 전 지역을 관할하며, 최근 20대와 30대의 주식 및 가상자산 투자 실패로 인한 채무에 대해 전향적인 판단을 내리고 있습니다. 다만 변제계획안의 실현 가능성과 월 평균 소득 증빙을 엄격하게 검토하므로, 경험이 풍부한 전문 업체의 컨설팅을 받는 것이 필수적입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "개인회생 신청 시 장단점은 무엇이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "장점으로는 연체 이자 100% 감면, 원금 최대 90% 탕감, 그리고 독촉 및 압류 금지 명령을 통해 일상생활을 보호받을 수 있다는 점이 있습니다. 단점으로는 신용카드 가입이나 신규 대출 등 금융 거래가 제한된다는 점이 있으나, 면책 결정을 받으면 모든 신용 등급이 회복되어 정상적인 은행 거래와 토스, 카카오톡 등 금융 앱 사용이 가능해집니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1E3A8A; /* Deep Navy */
+            --secondary-color: #3B82F6; /* Royal Blue */
+            --accent-color: #10B981; /* Sage Emerald */
+            --warm-accent: #EF4444; /* Soft Red/Coral */
+            --bg-light: #F8FAFC; /* Soft Blue-Gray */
+            --bg-card: #FFFFFF;
+            --text-main: #1F2937; /* Dark Charcoal */
+            --text-muted: #4B5563; /* Medium Gray */
+            --border-color: #E2E8F0;
+            --header-bg: #FFFFFF;
+            --footer-bg: #0F172A;
+            --pastel-yellow: #FEF3C7;
+            --pastel-blue: #EFF6FF;
+        }
+        
+        /* Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        /* Base Styles */
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            line-height: 1.9; 
+            font-size: 16px; 
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+            box-sizing: border-box; 
+        }
+        
+        /* Header */
+        header { 
+            background-color: var(--header-bg); 
+            padding: 24px 0; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border-color); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.2em; 
+            color: var(--primary-color); 
+            font-weight: 900; 
+            letter-spacing: -1px;
+        }
+        header h1 a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); 
+            color: #fff; 
+            text-align: center; 
+            padding: 90px 24px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .hero h1 { 
+            font-size: 3.2em; 
+            margin-bottom: 20px; 
+            font-weight: 900; 
+            line-height: 1.4; 
+            letter-spacing: -1.5px;
+        }
+        .hero p { 
+            font-size: 1.3em; 
+            margin-bottom: 40px; 
+            font-weight: 300; 
+            color: #E0F2FE;
+        }
+        .hero .highlight { 
+            color: #FDE047; 
+            font-weight: 900; 
+        }
+
+        /* CTA Button */
+        .cta-btn { 
+            background-color: var(--warm-accent); 
+            color: #fff; 
+            padding: 18px 45px; 
+            font-size: 1.25em; 
+            font-weight: 700; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.2s; 
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); 
+            text-decoration: none; 
+            display: inline-block; 
+        }
+        .cta-btn:hover { 
+            background-color: #DC2626; 
+            transform: translateY(-2px); 
+        }
+
+        /* Main Content Structure */
+        main { 
+            background-color: var(--bg-card); 
+            padding-bottom: 60px; 
+        }
+        .content-section { 
+            padding: 80px 0; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        .content-section:last-child { 
+            border-bottom: none; 
+        }
+        .content-section h2 { 
+            font-size: 2.3em; 
+            color: var(--primary-color); 
+            text-align: left; 
+            margin-bottom: 35px; 
+            font-weight: 800; 
+            line-height: 1.4; 
+            letter-spacing: -1px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        .content-section h3 { 
+            font-size: 1.6em; 
+            color: var(--secondary-color); 
+            margin-top: 50px; 
+            margin-bottom: 20px; 
+            padding-left: 16px; 
+            border-left: 5px solid var(--accent-color); 
+            font-weight: 700;
+        }
+        .content-section p { 
+            margin-bottom: 24px; 
+            font-weight: 400; 
+            color: var(--text-muted); 
+            font-size: 1.05em;
+        }
+        .content-section strong { 
+            font-weight: 700; 
+            color: var(--primary-color); 
+        }
+        .content-section ul { 
+            list-style: none; 
+            padding-left: 0; 
+            margin-bottom: 30px; 
+        }
+        .content-section li { 
+            padding: 12px 16px; 
+            border-bottom: 1px solid var(--border-color); 
+            background-color: var(--bg-light);
+            margin-bottom: 8px;
+            border-radius: 6px;
+            color: var(--text-main);
+        }
+
+        /* Data Visualization (Tables) */
+        .data-table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .data-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: #fff;
+        }
+        .data-table th, .data-table td { 
+            border: 1px solid var(--border-color); 
+            padding: 16px; 
+            text-align: center; 
+            font-size: 0.95em; 
+        }
+        .data-table th { 
+            background-color: var(--primary-color); 
+            color: #fff; 
+            font-weight: 700; 
+        }
+        .data-table tr:nth-child(even) { 
+            background-color: var(--bg-light); 
+        }
+        .data-table td strong { 
+            color: var(--warm-accent); 
+        }
+
+        /* Interactive Elements (Forms and Calculators) */
+        .calculator-container {
+            background-color: var(--pastel-blue);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #BFDBFE;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .calculator-container h3 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .calc-group {
+            margin-bottom: 20px;
+        }
+        .calc-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .calc-group input, .calc-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #93C5FD;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .calc-btn {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .calc-btn:hover {
+            background-color: var(--primary-color);
+        }
+        .calc-result {
+            margin-top: 30px;
+            padding: 24px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #BFDBFE;
+            display: none;
+        }
+        .calc-result-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+        }
+        .calc-result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        .calc-result-item span:last-child {
+            font-weight: 700;
+            color: var(--warm-accent);
+        }
+
+        .comparison-form-box { 
+            background-color: #fff; 
+            padding: 45px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            margin-top: 40px; 
+            border: 1px solid var(--border-color); 
+        }
+        .comparison-form-box h2 { 
+            color: var(--primary-color); 
+            text-align: center; 
+            margin-bottom: 30px; 
+            font-size: 2.1em; 
+        }
+        .comparison-form-box label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--text-main); 
+        }
+        .comparison-form-box input[type="text"], 
+        .comparison-form-box input[type="tel"],
+        .comparison-form-box input[type="number"],
+        .comparison-form-box select { 
+            width: 100%; 
+            padding: 14px; 
+            margin-bottom: 24px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            font-size: 1em; 
+            transition: border-color 0.3s;
+        }
+        .comparison-form-box input:focus, .comparison-form-box select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        .comparison-form-box .form-group { 
+            margin-bottom: 0; 
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* FAQ Section */
+        .faq-item { 
+            background-color: #fff; 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            margin-bottom: 16px; 
+            overflow: hidden; 
+            transition: box-shadow 0.3s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .faq-item h3 { 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 22px; 
+            background-color: var(--bg-light); 
+            margin: 0; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            border-left: none;
+            font-size: 1.15em;
+        }
+        .faq-item h3::after { 
+            content: '+'; 
+            font-size: 1.5em; 
+            color: var(--secondary-color); 
+            transition: transform 0.3s; 
+        }
+        .faq-item.active h3::after { 
+            content: '-'; 
+            transform: rotate(180deg); 
+        }
+        .faq-item p { 
+            display: none; 
+            padding: 22px; 
+            color: var(--text-muted); 
+            background-color: #fff; 
+            margin: 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 1.05em;
+        }
+        .faq-item.active p { 
+            display: block; 
+        }
+
+        /* Related Keywords and Navigation */
+        .keyword-box {
+            background-color: var(--pastel-yellow);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #FDE68A;
+            margin-top: 40px;
+        }
+        .keyword-box h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .keyword-list { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px;
+            margin: 0;
+        }
+        .keyword-list li { 
+            background-color: #fff; 
+            color: var(--primary-color); 
+            padding: 8px 16px; 
+            margin: 0; 
+            border-radius: 20px; 
+            font-weight: 500; 
+            border: 1px solid #FCD34D; 
+            font-size: 0.9em;
+        }
+        .link-source { 
+            color: var(--secondary-color); 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: text-decoration 0.2s;
+        }
+        .link-source:hover { 
+            text-decoration: underline; 
+        }
+        .link-source-list {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+        .link-source-item {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        /* Footer */
+        footer { 
+            background-color: var(--footer-bg); 
+            color: #94A3B8; 
+            text-align: center; 
+            padding: 50px 24px; 
+            font-size: 0.95em; 
+            line-height: 1.8; 
+            border-top: 1px solid #1E293B;
+        }
+        footer a { 
+            color: #CBD5E1; 
+            text-decoration: none; 
+            margin: 0 12px; 
+            transition: color 0.3s; 
+        }
+        footer a:hover { 
+            color: #fff; 
+            text-decoration: underline; 
+        }
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.1em; }
+            .cta-btn { padding: 15px 32px; font-size: 1.1em; }
+            .content-section h2 { font-size: 1.8em; }
+            .content-section h3 { font-size: 1.35em; }
+            .comparison-form-box { padding: 24px; }
+            .data-table th, .data-table td { font-size: 0.85em; padding: 12px; }
+            header h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="/">인천 개인회생 전문 법무사 비용 및 자격 자가진단 센터</a></h1>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>감당하기 힘든 채무의 굴레, <span class="highlight">인천 개인회생 전문 법무사</span>와 함께 극복하세요!</h1>
+                <p>2026년 최신 기준에 따른 정교한 무료 계산기 자가진단부터 전문적인 컨설팅까지, 든든한 조력자가 되어 드립니다.</p>
+                <a href="#qualification-calculator" class="cta-btn">내 예상 변제금 무료 계산해보기</a>
+            </div>
+        </section>
+
+        <!-- Interactive Self-Diagnosis Calculator Section -->
+        <section id="qualification-calculator" class="content-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2>인천 개인회생 자격 및 월 변제금 실시간 계산기</h2>
+                <p>간단한 정보 입력만으로 본인의 자격 여부를 진단하고, 인천지방법원 기준에 근거한 예상 월 변제금과 감면 혜택을 예측해보실 수 있습니다.</p>
+                
+                <div class="calculator-container">
+                    <h3>2026년 기준 개인회생 자가진단 계산기</h3>
+                    <div class="calculator-grid">
+                        <div class="calc-group">
+                            <label for="calc-income">월 평균 소득 (단위: 만 원)</label>
+                            <input type="number" id="calc-income" placeholder="예: 250" min="0">
+                        </div>
+                        <div class="calc-group">
+                            <label for="calc-dependents">부양가족 수 (본인 제외, 명)</label>
+                            <select id="calc-dependents">
+                                <option value="0">없음 (1인 가구)</option>
+                                <option value="1">1명 (2인 가구)</option>
+                                <option value="2">2명 (3인 가구)</option>
+                                <option value="3">3명 이상 (4인 가구)</option>
+                            </select>
+                        </div>
+                        <div class="calc-group">
+                            <label for="calc-debt">총 채무액 (예상 원금, 단위: 만 원)</label>
+                            <input type="number" id="calc-debt" placeholder="예: 6000" min="0">
+                        </div>
+                        <div class="calc-group">
+                            <label for="calc-region">거주지 또는 직장 소재지</label>
+                            <select id="calc-region">
+                                <option value="incheon">인천광역시 남동구</option>
+                                <option value="incheon">인천광역시 미추홀구</option>
+                                <option value="incheon">인천광역시 부평구</option>
+                                <option value="incheon">인천광역시 연수구</option>
+                                <option value="incheon">인천광역시 서구</option>
+                                <option value="incheon">인천광역시 계양구</option>
+                                <option value="incheon">인천광역시 중구</option>
+                                <option value="incheon">인천광역시 동구</option>
+                                <option value="incheon">인천광역시 강화군</option>
+                                <option value="incheon">인천광역시 옹진군</option>
+                                <option value="incheon">인천광역시 송도국제도시</option>
+                                <option value="incheon">인천광역시 청라국제도시</option>
+                                <option value="incheon">인천광역시 영종도</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="calc-btn" onclick="calculateRehabilitation()">자가진단 계산 결과 보기</button>
+
+                    <div class="calc-result" id="calc-result-panel">
+                        <div class="calc-result-title">예상 진단 분석 결과</div>
+                        <div id="calc-result-content">
+                            <!-- JS를 통해 결과가 동적으로 표시됩니다. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article Section 1 -->
+        <section class="content-section">
+            <div class="container">
+                <h2>2026년 인천지방법원 개인회생 제도 분석 및 자격 조건</h2>
+                <p>장기화되는 경기 침체 속에서 가계 부채를 감당하지 못해 고통받는 서민들이 늘어나고 있습니다. 특히 인천 지역은 급격한 부동산 변동과 상업 위축으로 인해 미추홀구, 남동구, 부평구, 연수구, 서구, 계양구, 중구, 동구 등 전역에서 많은 채무자가 어려움을 겪고 있습니다. 이러한 상황에서 합리적이고 정상적인 일상으로 복귀하기 위해 가장 널리 활용되는 사법적 구제 제도가 바로 개인회생 제도입니다.</p>
+                <p>개인회생은 법원이 채무자의 월 소득에서 최저생계비를 공제한 나머지 금액(가용소득)을 최장 3년에서 5년 동안 변제하도록 하고, 남은 원금과 이자를 모두 면책해 주는 제도입니다. 인천광역시 전역과 영종도, 송도, 청라, 강화군, 옹진군을 아우르는 관할 법원은 <strong>인천지방법원</strong>이며, 이곳의 독자적인 심사 기준을 정확히 파악해야 성실한 채무자가 조속한 면책에 도달할 수 있습니다.</p>
+
+                <h3>개인회생 기본 자격 요건 및 2026년 기준 최저생계비</h3>
+                <p>개인회생을 신청하기 위해서는 법률에서 규정한 세 가지 핵심 조건을 반드시 충족해야 합니다.</p>
+                <ul>
+                    <li><strong>지속적이고 반복적인 소득 증빙:</strong> 직장인(급여소득자)이나 자영업자(영업소득자)뿐만 아니라 프리랜서, 아르바이트생, 심지어 일용직 근로자도 일정한 수준의 월 소득을 정기적으로 증빙할 수 있어야 합니다.</li>
+                    <li><strong>채무 한도 조건의 충족:</strong> 담보가 없는 신용 채무의 경우 최대 10억 원 이하, 부동산이나 차량 등의 담보가 설정된 채무의 경우 최대 15억 원 이하의 총 채무 금액이어야 신청이 가능합니다. 이 범위를 초과하는 경우 일반회생 절차를 밟아야 합니다.</li>
+                    <li><strong>재산보다 채무가 더 많을 것:</strong> 본인 소유의 부동산, 자동차, 임차보증금, 적금 등 모든 자산 가치(재산 목록 평가액)의 총합이 현재 안고 있는 총 부채 규모보다 적어야 신청이 가능합니다. 이는 청산가치 보장의 원칙에 기인합니다.</li>
+                </ul>
+
+                <p>2026년도 기준 1인 가구 중위소득 기준 가구원 수별 최저생계비는 다음과 같이 인상 조정되었습니다. 변제금 계산 시 매우 중요한 기초 자료가 됩니다.</p>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>가구원 수 (본인 및 부양가족)</th>
+                                <th>2026년 기준 중위소득 (원)</th>
+                                <th>개인회생 인정 최저생계비 (중위소득의 60%, 원)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1인 가구</td>
+                                <td>2,350,000 원</td>
+                                <td><strong>1,410,000 원</strong></td>
+                            </tr>
+                            <tr>
+                                <td>2인 가구</td>
+                                <td>3,880,000 원</td>
+                                <td><strong>2,328,000 원</strong></td>
+                            </tr>
+                            <tr>
+                                <td>3인 가구</td>
+                                <td>4,980,000 원</td>
+                                <td><strong>2,988,000 원</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4인 가구</td>
+                                <td>6,020,000 원</td>
+                                <td><strong>3,612,000 원</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article Section 2 -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2>인천 개인회생 전문 법무사 수임 비용과 투명한 견적 분석</h2>
+                <p>개인회생을 고려할 때 신청인들이 가장 우려하는 부분 중 하나는 바로 법률 대리인 선임에 수반되는 수임 비용입니다. 대출금 상환 연체로 인해 당장의 생활비마저 부족한 상황에서 적지 않은 수임료를 마련하는 것은 큰 부담이 될 수밖에 없습니다. 이에 따라 인터넷 검색을 통해 가장 저렴한곳이나 제일 싼곳을 위주로 찾아보는 경향이 있으나, 무조건 낮은 가격만 보고 업체를 선택했다가는 낭패를 보기 십상입니다.</p>
+                
+                <h3>법무사 선임 비용의 평균 가격과 투명한 구성 항목</h3>
+                <p>인천 지역의 개인회생 전문 법무사의 평균 수임료 금액은 사건의 난이도와 채권자 수에 따라 결정됩니다. 일반적으로 형성되는 수임 비용 견적은 다음과 같습니다.</p>
+                <ul>
+                    <li><strong>평균 수임 가격 범위:</strong> 채권자 수가 5개 이하인 표준적인 사건의 경우 약 100만 원에서 150만 원 선으로 형성되어 있으며, 채권자 수가 10개 이상으로 증가하거나 사금융 및 개인 사채가 포함된 경우 150만 원에서 200만 원 수준까지 책정될 수 있습니다.</li>
+                    <li><strong>법원 납부 공과금 별도 계산:</strong> 대리인 수임료 외에도 법원에 직접 납부하는 인지대(기본 30,000원 상당) 및 송달료(채권자 수 비례 계산, 1회 송달료 약 5,200원 기준 채권자당 약 10회분 부과)가 추가로 발생하므로, 초기 컨설팅 단계에서 전체 금액의 산출 내역을 정직하게 공개하는 업체를 찾아야 합니다.</li>
+                    <li><strong>수임료 분납 지원 이벤트:</strong> 다수의 인천 개인회생 전문 법무사 사무소에서는 신청인의 형편을 고려하여 3개월에서 최대 6개월까지 수임료 분납 혜택을 제공하고 있습니다. 초기에 과도한 목돈 지출 없이 제도를 신규 가입하듯 진행할 수 있는 합리적인 구조입니다.</li>
+                </ul>
+
+                <h3>변호사 수임료와 법무사 비용의 장단점 및 차이점 비교</h3>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>구분 항목</th>
+                                <th>개인회생 전문 법무사 (추천)</th>
+                                <th>변호사 사무실</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>평균 비용 규모</strong></td>
+                                <td>약 100만 원 - 180만 원 내외 (합리적이고 저렴한곳 위주)</td>
+                                <td>약 150만 원 - 300만 원 이상 형성</td>
+                            </tr>
+                            <tr>
+                                <td><strong>업무 처리 방식</strong></td>
+                                <td>전문적인 법원 서류 작성 대행, 보정 조치 완벽 지원</td>
+                                <td>대리인 명의 소송 및 기일 직접 대리 가능</td>
+                            </tr>
+                            <tr>
+                                <td><strong>실무적 관점의 효율성</strong></td>
+                                <td>개인회생은 서류 중심 심사이므로 <strong>비용 대비 효율이 매우 높음</strong></td>
+                                <td>채무 액수가 매우 크고 형사 소송 등이 복잡하게 얽힌 경우 유리</td>
+                            </tr>
+                            <tr>
+                                <td><strong>수임료 분납 가능 여부</strong></td>
+                                <td>대부분 최대 6회 내외 분납 지원 및 초기 진입 비용 최소화</td>
+                                <td>사무실 방침에 따라 분납 여부 및 횟수가 상이함</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article Section 3 -->
+        <section class="content-section">
+            <div class="container">
+                <h2>연령별 및 지역별 맞춤형 회생 전략 수립의 필요성</h2>
+                <p>인천광역시는 매우 넓고 다채로운 지역적, 경제적 특색을 가집니다. 부평구와 남동구는 고밀도 주거지와 구월동 상권, 산업단지가 공존하고 있어 급여소득자와 영세 자영업자의 개인회생 비율이 골고루 높은 편입니다. 반면 송도, 청라, 영종도와 같은 신도시 지역은 외관상 화려하지만 높은 가계 대출 부담과 무리한 부동산 갭투자, 또는 생활비 부족으로 인한 다중 채무 발생율이 가파르게 상승하고 있습니다. 미추홀구와 중구, 동구 등 구도심의 경우 사업 실패와 빚보증으로 힘들어하시는 50대 및 60대 장년층의 비중이 큽니다.</p>
+
+                <h3>세대별 채무 종류에 따른 최적화된 회생 솔루션</h3>
+                <p>최근 법률 상담을 위해 방문하는 신청인들의 양상을 분석해보면 연령대별로 빚이 생기게 된 구체적인 원인에 뚜렷한 차이가 납니다.</p>
+                <ul>
+                    <li><strong>20대 및 30대 청년층:</strong> 스마트폰 앱이나 어플을 통한 가상자산(비트코인 등) 및 주식 투자 실패, 인터넷 스포츠 토토 및 도박 채무, 모바일 다이렉트 신용대출의 악순환이 주를 이룹니다. 인천지방법원은 청년층의 조속한 사회 안착을 돕기 위해 투자 손실금 자체를 재산 목록(청산가치)에 전액 반영하도록 하던 과거의 가혹한 지침을 완화하여, 성실 변제 가능성을 중심으로 신축적으로 대응해 줍니다.</li>
+                    <li><strong>40대 및 50대 장년층:</strong> 주로 자영업 매장의 누적된 폐업 손실, 급증한 생활 자금 융통, 다중 카드론 채무가 다수입니다. 부양가족 수가 상대적으로 많기 때문에 최저생계비를 많이 확보하여 월 변제금 자체를 가장 낮추는 방향으로 전략적인 컨설팅이 진행되어야 성공적인 면책을 이끌어낼 수 있습니다.</li>
+                    <li><strong>60대 이상 고령층:</strong> 노후 대출 연체나 자녀 지원 과정에서 발생한 보증 채무 등이 주요인입니다. 소득 활동 능력이 감퇴함에 따라 개인회생뿐만 아니라 전액 채무를 탕감받는 개인파산 면책 제도가 더 유리한 순위인지 꼼꼼한 법률 비교가 요구됩니다.</li>
+                </ul>
+
+                <h3>인터넷 커뮤니티의 생생한 정보 공유와 실제 신청 후기</h3>
+                <p>회생 절차를 알아보기 위해 구글, 네이버 등 대형 검색 포털을 검색하기도 하지만 디시인사이드 개인회생 갤러리나 보배드림, 에펨코리아(펨코) 등 유명 커뮤니티의 내돈내산 실제 후기들을 읽어보며 실무 정보를 교환하는 경우가 늘어났습니다. 이들 사이트에서 오고 가는 조언들에 따르면, 단순하게 대행 수임료 가격만 무리하게 아끼기 위해 검증되지 않은 저가 브랜드를 찾았다가 불성실한 보정 명령 대응으로 개시 결정이 지연되거나 월 변제 금액이 감당할 수 없을 정도로 지나치게 높게 잡혀 중도 폐지되는 사례가 빈번하게 지적됩니다. 따라서 전문성과 끝까지 책임지는 성실한 관리 역량을 최우선 순위로 보고 추천 법무사를 선정하는 태도가 권장됩니다.</p>
+            </div>
+        </section>
+
+        <!-- SEO Article Section 4 -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2>AI 시대를 선도하는 스마트한 채무 관리 및 사전 정보 탐색 노하우</h2>
+                <p>과거에는 무작정 여러 군데의 오프라인 사무실을 찾아다니며 고통스러운 상담을 받아야 했지만, 고도화된 IT 환경이 구축된 현재는 다양한 비대면 디지털 통로를 활용해 스마트하게 사전 조사를 마칠 수 있는 여건이 정비되었습니다. 금융 자산 및 부채 통합 조회를 쉽게 해주는 토스 어플리케이션이나 카카오톡 등의 모바일 금융 채널을 이용하면 단 몇 분 만에 자신의 정확한 신용 부채와 보증인 채무 내역을 일목요연하게 파악할 수 있어 복잡한 부채증명서 발급 전 미리 대략적인 견적을 잡아보는 것이 수월해졌습니다.</p>
+                <p>또한 정보의 비대칭성을 해소하기 위해 최근에는 인공지능 기반 검색 및 분석 기능인 제미나이(Gemini)나 챗지피티(ChatGPT), 기타 한국형 인공지능(AI) 플랫폼을 비서 삼아 자격 요건의 기본 뼈대를 먼저 공부하는 30대 및 40대 채무자들도 대폭 확대되었습니다. 하지만 AI를 활용한 질의응답은 법조문에 기반한 기초적이고 포괄적인 장단점이나 이론적 정의를 알려줄 뿐, 실시간으로 변동하는 인천지방법원 회생위원들의 세부 지침이나 성향, 신청인 고유의 세부적인 생활 보정 자료를 정밀하게 직조해주지는 못합니다. 인공지능을 통해 얻은 예비 정보를 가이드라인으로 삼되, 결국 세부적인 성공 전략 수립과 까다로운 소명 작업은 신뢰도 높은 전문 법무사와의 직접적인 심층 컨설팅을 통해 설계하는 조합이 가장 영리한 대안입니다.</p>
+
+                <h3>개인회생 신청을 통한 삶의 획기적인 이점</h3>
+                <ul>
+                    <li><strong>채권추심 및 채권 압류 즉시 중단:</strong> 법무사 사무소를 통해 개시 신청서 접수와 동시에 신청하는 금지 및 중지명령이 수일 내 결정되면, 채권자들의 극심한 전화 독촉, 자택 방문, 급여나 통장 압류 행위가 원천적으로 금지되어 완전한 심리적 안정을 되찾을 수 있습니다.</li>
+                    <li><strong>채무액의 과감한 원금 탕감 혜택:</strong> 이자는 예외 없이 100% 감면 조치되며, 가구의 소득과 재산 상황에 따라 원금조차 최대 90%까지 합리적으로 감면받을 수 있는 초강력 법정 혜택을 부여합니다.</li>
+                    <li><strong>사회적 지위의 완벽한 보장:</strong> 회생을 신청하더라도 직장에서 파면되거나 신분상의 불이익을 당하지 않으며, 공무원이나 기업의 임원, 의사나 전문직 자격증도 아무 지장 없이 유지할 수 있어 생업에 평온하게 전념할 수 있습니다.</li>
+                    <li><strong>재산 보유 가능성 유지:</strong> 채무 변제계획안을 성실히 수행하는 기간 중에도 임차보증금이나 필수 가재도구 등 필수 자산은 합법적으로 처분하지 않고 끝까지 지킬 수 있어 주거 불안으로부터 해방됩니다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEO Article Section 5: Authoritative Links -->
+        <section class="content-section">
+            <div class="container">
+                <h2>신뢰할 수 있는 공인 사법 법률 정보 제공처</h2>
+                <p>인천 지역의 개인회생 절차를 올바르게 이행하기 위해서는 반드시 검증된 공공 기구 및 공신력 높은 사법 관련 외부 공식 웹사이트의 가이드라인을 참조해야 올바른 정보 분별력을 기를 수 있습니다. 안전하고 확실한 진행을 위해 상시 모니터링할 수 있는 추천 공식 웹사이트 목록을 투명하게 안내해 드립니다.</p>
+                
+                <ul class="link-source-list">
+                    <li class="link-source-item">
+                        인천 개인회생 법률 자격 검토 전문 아카이브: 
+                        <a href="https://recoveryoflawso.koreahankang.com" target="_blank" class="link-source">인천 법률 도우미 종합정보센터</a>
+                    </li>
+                    <li class="link-source-item">
+                        대한민국 사법부 공식 전자소송 및 사건 검색: 
+                        <a href="https://www.scourt.go.kr" target="_blank" class="link-source">대한민국 법원 대국민서비스</a>
+                    </li>
+                    <li class="link-source-item">
+                        국가 사법 질서 및 구제 제도 총괄 부서: 
+                        <a href="https://www.moj.go.kr" target="_blank" class="link-source">대한민국 법무부 공식 웹사이트</a>
+                    </li>
+                    <li class="link-source-item">
+                        사회적 약자를 위한 무료 사법 구제 수단 안내: 
+                        <a href="https://www.klac.or.kr" target="_blank" class="link-source">대한법률구조공단</a>
+                    </li>
+                    <li class="link-source-item">
+                        개인회생 정의, 변천사 및 상세 절차 위키 백과사전: 
+                        <a href="https://namu.wiki/w/%EA%B0%9C%EC%9D%B8%ED%9A%8C%EC%83%9D" target="_blank" class="link-source">나무위키 개인회생 항목</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Quote Submission Form -->
+        <section class="content-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <div class="comparison-form-box" id="quote-form-section">
+                    <h2>인천 개인회생 1:1 정밀 분석 무료 신청 폼</h2>
+                    <p>현재 연체 중이시거나 채무 불이행 위험에 직면하신 경우, 아래의 간단한 기본 항목을 작성해 주시면 다년간의 풍부한 기각 극복 경험을 지닌 전문 법무사가 개별 맞춤 솔루션을 무상으로 컨설팅해 드립니다.</p>
+                    
+                    <form id="rehab-consult-form" onsubmit="submitConsultForm(event)">
+                        <div class="form-group">
+                            <label for="user-name">성함 (신청인)</label>
+                            <input type="text" id="user-name" placeholder="예: 홍길동" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-tel">연락 가능한 전화번호</label>
+                            <input type="tel" id="user-tel" placeholder="예: 010-1234-5678" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-age">연령대 선택</label>
+                            <select id="user-age" required>
+                                <option value="">-- 연령대를 선택해 주세요 --</option>
+                                <option value="20">20대 청년</option>
+                                <option value="30">30대 직장인/청년</option>
+                                <option value="40">40대 가정주부/가장</option>
+                                <option value="50">50대 자영업자/가장</option>
+                                <option value="60">60대 이상 고령자</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-debt-cause">주요 채무 원인 및 종류</label>
+                            <select id="user-debt-cause" required>
+                                <option value="">-- 주요 원인을 선택해 주세요 --</option>
+                                <option value="living">생활비 부족 및 급여 연체</option>
+                                <option value="investment">주식, 가상자산 등 재테크 실패</option>
+                                <option value="business">자영업 운영 자금난 및 폐업</option>
+                                <option value="guarantee">가족 및 지인 보증 채무</option>
+                                <option value="other">기타 불가피한 사유</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-location">인천 내 세부 거주 지역</label>
+                            <select id="user-location" required>
+                                <option value="">-- 지역을 선택해 주세요 --</option>
+                                <option value="미추홀구">인천 미추홀구</option>
+                                <option value="남동구">인천 남동구</option>
+                                <option value="부평구">인천 부평구</option>
+                                <option value="연수구">인천 연수구 (송도 포함)</option>
+                                <option value="서구">인천 서구 (청라 포함)</option>
+                                <option value="계양구">인천 계양구</option>
+                                <option value="중구">인천 중구 (영종도 포함)</option>
+                                <option value="동구">인천 동구</option>
+                                <option value="강화군">인천 강화군</option>
+                                <option value="옹진군">인천 옹진군</option>
+                            </select>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy-agree" required>
+                            <label for="privacy-agree" style="display:inline; margin-bottom:0;">개인정보 수집 및 무료 유선 상담을 위한 이용약관 동의 (필수)</label>
+                        </div>
+                        <button type="submit" class="cta-btn" style="width:100%;">맞춤형 전문가 견적 분석 요청하기</button>
+                    </form>
+                </div>
+
+                <!-- Related Search Keywords Block for SEO -->
+                <div class="keyword-box">
+                    <h4>인천 개인회생 신청자들이 함께 많이 검색하는 핵심 키워드</h4>
+                    <p>인천지방법원의 독특한 개시 결정 요령과 개인회생 신청자들이 남동구, 부평구, 미추홀구 등의 오프라인 사무실 탐색 시 빈번하게 대조하는 연관 검색어 목록입니다.</p>
+                    <ul class="keyword-list">
+                        <li>인천 개인회생 전문 법무사 추천</li>
+                        <li>인천지방법원 개인회생 개시 결정 기간</li>
+                        <li>미추홀구 개인회생 비용 저렴한곳</li>
+                        <li>부평구 개인회생 법무사 수임료 분납</li>
+                        <li>20대 주식 빚 개인회생 탕감 비율</li>
+                        <li>30대 가상자산 개인회생 청산가치 평가</li>
+                        <li>자영업 폐업 후 개인회생 자격 기준</li>
+                        <li>변호사 법무사 비용 장단점 차이</li>
+                        <li>개인회생 변제금 계산기 앱 사용법</li>
+                        <li>디시 개인회생 내돈내산 성공 후기</li>
+                        <li>보배드림 개인회생 독촉 중단 시점</li>
+                        <li>펨코 개인회생 수임료 사기 방지 대책</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2>자주 하시는 질문 (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <h3>인천지방법원 개인회생 진행 시 다른 법원에 비해 절차가 까다로운 편인가요?</h3>
+                    <p>인천지방법원은 서울회생법원에 비해 보정 명령 횟수가 상대적으로 다소 빈번한 것으로 알려져 있어, 꼼꼼한 서류 준비가 필수적입니다. 하지만 최근 경기 흐름과 20대, 30대 청년층의 경제적 재기를 지원하기 위해 주식이나 가상자산 투자 손실에 대해 지나친 불이익을 가하지 않고 실질적인 갱생에 무게를 두는 긍정적인 제도 운용의 변화도 함께 나타나고 있습니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>법무사 선임 비용 분납 시 이자가 따로 붙나요?</h3>
+                    <p>대부분의 인천 개인회생 전문 법무사 사무소에서는 어려움을 겪고 계시는 신청인분들의 고통을 분담하는 의미에서 분납에 따른 이자나 별도의 수수료를 전혀 청구하지 않습니다. 약정된 수임 금액을 통상 3회에서 6회에 걸쳐 약정일자에 무이자로 나누어 상환하실 수 있어 초기 진입 장벽이 매우 낮습니다.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>개인회생 신청 사실이 직장에 알려지면 어쩌죠?</h3>
+                    <p>이는 가장 흔히 하시는 오해 중 하나입니다. 법무사를 대리인으로 하여 개인회생을 진행하면, 법원에서 발송하는 모든 결정서 및 송달 서류는 거주하시는 직장이나 자택이 아닌 전담 법무사 사무실로 직접 도달합니다. 따라서 주변 동료나 회사 경영진, 가족들이 본인의 회생 신청 사실을 전혀 알 수 없으며, 사생활이 완전하게 보장됩니다.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>채무가 연체되기 전에도 법무사 상담 및 접수가 가능한가요?</h3>
+                    <p>네, 전적으로 가능합니다. 당장 연체가 발생하지 않았더라도 다가오는 결제일에 급격한 생활고나 수입 단절로 대출 연체가 확실시되는 위태로운 상황이라면 연체가 본격적으로 터지기 전에 미리 법무사와 컨설팅을 마치고 신청 서류를 사전에 조율할 수 있습니다. 이를 통해 연체 시작과 동시에 채권 추심을 강력히 차단하는 금지명령 조치를 선제적으로 도출하는 것이 일상생활 방어에 대단히 효과적입니다.</p>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+    <!-- JavaScript for Interactive Calculator and Form Submission -->
+    <script>
+        // FAQ Accordion Toggle Logic
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const p = parent.querySelector('p');
+                p.style.display = p.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // 2026 Individual Rehabilitation Simple Calculation JS Logic
+        function calculateRehabilitation() {
+            const incomeInput = document.getElementById('calc-income').value;
+            const dependentValue = parseInt(document.getElementById('calc-dependents').value);
+            const debtInput = document.getElementById('calc-debt').value;
+
+            if (!incomeInput || !debtInput) {
+                alert("월 소득금액과 총 채무금액을 모두 정밀하게 입력해 주세요.");
+                return;
+            }
+
+            const monthlyIncome = parseFloat(incomeInput) * 10000;
+            const totalDebt = parseFloat(debtInput) * 10000;
+
+            if (monthlyIncome <= 0 || totalDebt <= 0) {
+                alert("0보다 큰 올바른 값을 숫자로만 입력해 주세요.");
+                return;
+            }
+
+            // 2026 Minimum Living Costs (60% of median income)
+            // 1 person (dependents 0): 1,410,000 KRW
+            // 2 person (dependents 1): 2,328,000 KRW
+            // 3 person (dependents 2): 2,988,000 KRW
+            // 4 person (dependents 3): 3,612,000 KRW
+            let minLivingCost = 1410000;
+            if (dependentValue === 1) {
+                minLivingCost = 2328000;
+            } else if (dependentValue === 2) {
+                minLivingCost = 2988000;
+            } else if (dependentValue >= 3) {
+                minLivingCost = 3612000;
+            }
+
+            const resultPanel = document.getElementById('calc-result-panel');
+            const resultContent = document.getElementById('calc-result-content');
+            resultPanel.style.display = 'block';
+
+            if (monthlyIncome <= minLivingCost) {
+                resultContent.innerHTML = `
+                    <div style="color: #EF4444; font-weight: 700; margin-bottom: 15px;">
+                        경고: 월 소득액이 보장받아야 하는 법정 최저생계비보다 부족합니다.
+                    </div>
+                    <p style="margin-bottom:0; font-size: 0.95em;">
+                        현재 기재해주신 월 평균 소득(${incomeInput}만 원)이 해당 가구의 2026년 기준 법정 최소생계비(${Math.round(minLivingCost/10000)}만 원) 이하로 파악됩니다. 
+                        이 경우 변제계획서 작성이 불가능하여 회생 개시 신청이 거절될 수 있으며, 대신에 원금 100% 면책이 가능한 개인파산 자격에 부합하는지 전문 법무사와의 심층 진단을 긴급히 개시하시는 방향을 권장해 드립니다.
+                    </p>
+                `;
+                return;
+            }
+
+            // Calculate monthly repayment and total repayment
+            let monthlyRepayment = monthlyIncome - minLivingCost;
+            let totalRepayment36Months = monthlyRepayment * 36;
+            
+            let forgivenessRate = 0;
+            let realMonthlyRepayment = monthlyRepayment;
+
+            if (totalRepayment36Months >= totalDebt) {
+                // If total repayment over 36 months is larger than total debt, monthly repayment is capped to debt/36
+                realMonthlyRepayment = Math.round(totalDebt / 36);
+                forgivenessRate = 0;
+            } else {
+                const totalForgivenAmount = totalDebt - totalRepayment36Months;
+                forgivenessRate = Math.round((totalForgivenAmount / totalDebt) * 100);
+            }
+
+            const displayMonthlyRepayment = Math.round(realMonthlyRepayment / 10000);
+            const displayTotalRepayment = Math.round((realMonthlyRepayment * 36) / 10000);
+            const displayForgivenAmount = Math.round((totalDebt - (realMonthlyRepayment * 36)) / 10000);
+
+            resultContent.innerHTML = `
+                <div class="calc-result-item">
+                    <span>2026년 기준 내 가구원 수 법정 최소생계비:</span>
+                    <span>약 ${Math.round(minLivingCost/10000)}만 원</span>
+                </div>
+                <div class="calc-result-item">
+                    <span>예상 월 가용소득 (월 변제금):</span>
+                    <span>월 약 ${displayMonthlyRepayment}만 원</span>
+                </div>
+                <div class="calc-result-item">
+                    <span>3년 (36개월) 납입 총금액:</span>
+                    <span>약 ${displayTotalRepayment}만 원</span>
+                </div>
+                <div class="calc-result-item" style="border-top: 1px dashed #BFDBFE; padding-top: 12px; margin-top: 12px;">
+                    <span style="font-weight:700; color:var(--primary-color);">총 탕감(감면) 원금 규모:</span>
+                    <span style="font-weight:700; color:var(--warm-accent);">약 ${displayForgivenAmount}만 원</span>
+                </div>
+                <div class="calc-result-item">
+                    <span style="font-weight:700; color:var(--primary-color);">예상 원금 탕감 비율:</span>
+                    <span style="font-weight:700; color:var(--warm-accent);">약 ${forgivenessRate}% 수준 감면 예상</span>
+                </div>
+                <p style="font-size:0.85em; color:var(--text-muted); margin-top:15px; border-top:1px solid #E2E8F0; padding-top:10px; margin-bottom:0;">
+                    상기 연산은 가장 이상적인 단독 생계비 공제 조건을 대입한 결과이며, 실제 재산 가치(청산가치 보장) 및 부채 유형(최근 채무 비중)에 따라 최종 변제금에 보정이 따를 수 있으므로 세부적인 조정은 무료 정밀 견적 신청 폼을 통해 조력을 구해 보시기 바랍니다.
+                </p>
+            `;
+        }
+
+        // Form Submission Handler (Dwell Time & Lead Generation)
+        function submitConsultForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('user-name').value;
+            const tel = document.getElementById('user-tel').value;
+            const age = document.getElementById('user-age').value;
+            const cause = document.getElementById('user-debt-cause').value;
+            const location = document.getElementById('user-location').value;
+
+            alert(`인천 개인회생 자격 무료 정밀 컨설팅 접수가 완료되었습니다.\n\n신청인: ${name} 님\n선택 거주지: 인천 ${location}\n\n기재해주신 연락처(${tel})로 인천지방법원 회생 전문 대리인이 연락하여 가장 안전하고 합리적인 비용의 회생 진행 대책을 수립해 드리겠습니다. 감사합니다.`);
+            document.getElementById('rehab-consult-form').reset();
+        }
+    </script>
+  
